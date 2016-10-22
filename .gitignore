@@ -1,0 +1,16 @@
+# Kile project file
+*.kilepr
+*.kate-swp
+*.backup
+
+# LaTeX auxiliary files
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.pdf
+*.run.xml

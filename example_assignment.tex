@@ -1,0 +1,102 @@
+% Enable warnings about problematic code
+\RequirePackage[l2tabu, orthodox]{nag}
+
+\documentclass{WeSTassignment}
+
+% The lecture title, e.g. "Web Information Retrieval".
+\lecture{Lecture Title}
+% The names of the lecturer and the instructor(s)
+\author{%
+  Dr.~John~Doe\\{\normalsize\mailto{johndoe@uni-koblenz.de}} \and
+  William~Smith\\{\normalsize\mailto{williamsmith@uni-koblenz.de}}
+}
+% Assignment number.
+\assignmentnumber{1}
+% Institute of lecture.
+\institute{%
+  Institute of Web Science and Technologies\\%
+  Department of Computer Science\\%
+  University of Koblenz-Landau%
+}
+% Date until students should submit their solutions.
+\datesubmission{March 13, 2007, 10:00 a.m.}
+% Date on which the assignments will be discussed in the tutorial.
+\datetutorial{March 15, 2007}
+
+% Set langauge of text.
+\setdefaultlanguage[
+  variant = american, % Use American instead of Britsh English.
+]{english}
+
+% Specify bib file location.
+\addbibresource{example_bibliography.bib}
+
+% ==============================================================================
+% Document
+
+\begin{document}
+
+\maketitle
+
+You can have text on the title page if you want.
+
+% ------------------------------------------------------------------------------
+
+\section{Assignment Title (10 Points)}
+
+Here goes the text that describes what tasks the students have to perform for
+this assignment.
+
+\begin{itemize}
+  \item Giving bullet points is preferred because they allow for easier
+    overview and can be though of as \emph{ticked-off}.
+  \item A footnote is coming up\footnote{Text inside the footnote.}.
+  \item Trying out references \footcite{DBLP:conf/leet/CheckowaySR10}.
+    Use \texttt{\textbackslash{}footcite} so that the citation appears in the
+    footnote, because there is no References section.
+    This works because we have set \texttt{style~=~verbose} in the
+    \texttt{biblatex} (\url{https://www.ctan.org/pkg/biblatex}) options.
+    Another citation coming up \footcite{DBLP:books/sp/Gratzer16}.
+\end{itemize}
+
+
+% ------------------------------------------------------------------------------
+
+
+\section{Collision detection (5 Points)}
+
+\emph{This following example exercise is by Stefan Scheglman from the
+  \enquote{Introduction to Web Science (WS1516)} course, Assignment 1.}
+
+Write a simple python program that does a simplified simulation of Ethernet with
+collision-detection.
+
+\begin{itemize}
+  \item Your should simulate networks with 2 up to 100 hosts.
+  \item In the simulation, each host should send 8 KBytes of data (just write
+    them to the network).
+  \item In one simulation step a host can send 1 Bit of data.
+  \item Assume that the distance between hosts is always one. (A host occupies
+    the network after he finished to send the first bit.)
+  \item The minimum frame size is 512 Byte. Assume that only minimal frames are
+    send.
+  \item Consider the overhead of the Ethernet frame header and footer when
+    calculating the total amount of frames to be send for the 8 KBytes of data.
+    Also consider that packages and not frames are send. (Advise: check
+    \url{https://en.wikipedia.org/wiki/Ethernet_frame})
+  \item If a collision is detected (two or more hosts sending at the same time)
+    the sending process is reset and the colliding hosts waits for a random time
+    slot before they start to send again (according to the collision detection
+    algorithm presented in the Web Science MOOC).
+  \item At the end of the simulation generate a plot with the number of
+    computers on the x-axis and the time (simulation steps to send 8 Kbyte from
+    every host) on the y-axis.
+\end{itemize}
+
+We provide you with a unfinished \texttt{.py} script in your SVN source folder.
+Please use this file to complete your program and fill in the given variables
+according to the specifications and values given above.
+
+\makefooter
+
+\end{document}
