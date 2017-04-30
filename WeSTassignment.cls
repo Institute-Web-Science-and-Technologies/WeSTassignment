@@ -102,7 +102,8 @@
   maxbibnames = 10, % max number of names in bibliography
   maxcitenames = 2, % max number of names in text cite
   uniquelist = minyear, % only add more authors if year is not unique
-  firstinits = true, % abbreviate first name of authors
+  labeldateparts = true,
+  giveninits = true, % abbreviate given name of authors
   doi = false, % do not show doi
   isbn = false, % do not show isbn
   eprint = false, % do not show eprint
@@ -177,11 +178,20 @@
 \newcommand*\makefooter{%
   \section*{Important Notes}
 
-  Questions and discussion with regard to the lecture, tutorial, or assignments
-  on\\
-  \url{https://deliver.uni-koblenz.de/webnews/newsgroups.php?group=infko.webscience}\\
-  or in our Facebook group\\
-  \url{https://www.facebook.com/groups/InformationRetrievalUniKoblenz}
+  {
+    % Supress overful \hbox warning
+    % see https://tex.stackexchange.com/a/144615/75225
+    \hfuzz=\maxdimen
+
+    Ask questions and discussion with regard to the lecture, tutorial, or
+    assignments in
+    \begin{itemize}
+      \item The WebScience newsgroup:\\
+        \url{https://webnews.uni-koblenz.de/newsgroups.php?group=infko.webscience}
+      \item Our Facebook group:\\
+        \url{https://facebook.com/groups/InformationRetrievalUniKoblenz}
+    \end{itemize}
+  }
 
   \subsection*{Submission}
 
@@ -250,9 +260,11 @@
 
 % Bibliography -----------------------------------------------------------------
 
-% Last names before first names: http://tex.stackexchange.com/q/113573
-\DeclareNameAlias{sortname}{last-first}
-\DeclareNameAlias{default}{last-first}
+% Family names before given names: http://tex.stackexchange.com/q/113573
+% Note: last-first renamed to family-given to reflect updated BibLaTeX
+% terminology.
+\DeclareNameAlias{sortname}{family-given}
+\DeclareNameAlias{default}{family-given}
 
 % Author lastnames in small caps, but only in bibliography not in the citation.
 \AtBeginBibliography{
