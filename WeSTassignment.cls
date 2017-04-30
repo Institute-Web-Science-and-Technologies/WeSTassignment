@@ -13,6 +13,12 @@
 \newcommand*\mailto[1]{\href{mailto:#1}{\nolinkurl{#1}}}
 
 % ==============================================================================
+% Reference Solution
+
+\newif\ifsolution
+\newcommand*\solution[1]{\ifsolution{\color{WeSTred}#1}\fi}
+
+% ==============================================================================
 % Document Class
 
 \LoadClass[
@@ -130,7 +136,7 @@
 \let\oldmaketitle\maketitle
 \renewcommand*\maketitle{
   \title{\@lecture}%
-  \subtitle{Assignment~\@assignmentnumber}%
+  \subtitle{Assignment~\@assignmentnumber\solution{~(Solution)}}%
   \date{%
     \@institute\\%
     \vspace{0.3cm}
@@ -184,23 +190,51 @@
       Use the directory name \texttt{solutions/assignment\@assignmentnumber{}/}
       in your group's repository \emph{mandatory}.
     \item The SVN repository is available via\\
-      \url{https://svn.uni-koblenz.de/westteaching/ir-ss16/<groupname>}
+      \url{https://svn.uni-koblenz.de/westteaching/ir-ss17/<groupname>}
+    \item Solution format: all solutions for theoretical taks as \emph{one} PDF
+      document.
+      Programming code has to be submitted as Python code.
     \item The name of the group and the names of all participating students must
-      be listed on each submission.
+      be listed on each submission:
+
+      \begin{itemize}
+        \item at the top of each PDF file
+        \item at the top of each Python file (in comments)
+      \end{itemize}
+
       Only named students will receive credit.
     \item With the submission of your solution you confirm that you created the
       solution independently as a group, especially without using other
       intellectual contributions.
-      In other words, you submission should not be
+      That is, you submission should not be
       \href{https://en.wikipedia.org/wiki/Plagiarism}{plagiarism}!
-      Should the case occur that the submissions of multiple groups are
-      identical, none of these groups will receive credit.
-    \item Solution format: all solutions as \emph{one} PDF document.
-      Programming code has to be submitted as Java code to the SVN.
-      Upload \emph{all} \texttt{.java} files of your program!
-      Use \texttt{UTF-8} as the file encoding.
+  \end{itemize}
+
+  \subsection*{Programming Assignments}
+
+  The programming assignments require you to have a Python 3.6+ interpreter
+  (older versions may still work coincidentally, but are not officially
+  supported) and the SciPy stack installed.
+  For an installation guide, see
+  \url{http://west.uni-koblenz.de/en/studying/installing-python}
+
+  The following rules apply for the \emph{implementation} of your solution:
+
+  \begin{itemize}
+    \item You can create as many additional code files as you need.
+      You can create as many additional classes or methods as you need (even in
+      the provided code files).
+      However, do not forget to submit \emph{all} \texttt{.py} code files to
+      the SVN.
+    \item Check that your code compiles and runs without errors.
+    \item Use \texttt{UTF-8} as the file encoding.
       \emph{Other encodings will not be taken into account!}
-    \item Check that your code compiles without errors.
+    \item Test your implementation with the provided test cases.
+
+      Passing of all tests is a \emph{necessity} to receive full score, no
+      \emph{sufficiency}.
+      In general, programming against the provided test cases should assist you
+      in finding correct solutions.
     \item Make sure your code is formatted to be easy to read.
       \begin{itemize}
         \item Make sure you code  has consistent
@@ -211,60 +245,6 @@
       \end{itemize}
     \item Do \emph{not} use any accents, spaces or special characters in your
       filenames.
-  \end{itemize}
-
-  \clearpage
-  \subsection*{Programming Assignments}
-
-  The programming assignments require you to have the Java Development
-  Kit~(JDK) and Apache~Maven installed.
-  Eclipse is recommended as a development environment.
-  For an installation guide, see
-  \url{http://west.uni-koblenz.de/en/setup-java-maven-eclipse}
-
-  Together with this assignment sheet you should have downloaded at least the
-  following files:
-
-  \begin{itemize}
-    \item \texttt{src/main/*} --- this folder contains the starting Java code,
-      your solution should go inside of it.
-    \item \texttt{src/test/*} --- this folder contains Java test cases to verify
-      your solution, you should \emph{not} modify the existing test cases, but
-      you can add your own.
-    \item \texttt{pom.xml} --- this is a Maven build file, you should not have to
-      read or modify its contents.
-  \end{itemize}
-
-  To start editing the assignment code in Eclipse, performing the following
-  steps:
-
-  \begin{itemize}
-    \item On first startup Eclipse will have asked you for a workspace folder.
-      Copy the assignment folder inside it: \texttt{<workspace>/assignment1/}.
-    \item In Eclipse click
-      \enquote{File}\,\to\,\enquote{New}\ \to\ \enquote{Java~Project}.
-      Enter \enquote{\texttt{assignment\@assignmentnumber}} for the
-      \enquote{Project~name}.
-      This text should appear on the bottom of the dialog:
-      \enquote{\emph{The wizard will automatically configure the JRE and the
-      project layout based on the existing source.}}
-      Click \enquote{Finish}.
-    \item Right-click on the newly created project
-      \to\,\enquote{Configure}\ \to\ \enquote{Convert to Maven Project}.
-  \end{itemize}
-
-  The following rules apply for the \emph{implementation} of your solution:
-
-  \begin{itemize}
-    \item You can create as many additional code files as you need.
-      You can create as many additional classes or methods as you need (even in
-      the provided code files).
-      Do not forget to submit \emph{all} \texttt{.java} code files.
-    \item Test your implementation with the provided JUnit test cases.
-
-      Passing of all tests is a \emph{necessity} to receive full score, no
-      \emph{sufficiency}.
-      In general, programming against the provided test cases should assist you
   \end{itemize}
 }
 
