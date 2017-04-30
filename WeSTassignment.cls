@@ -13,12 +13,6 @@
 \newcommand*\mailto[1]{\href{mailto:#1}{\nolinkurl{#1}}}
 
 % ==============================================================================
-% Reference Solution
-
-\newif\ifsolution
-\newcommand*\solution[1]{\ifsolution{\color{WeSTred}#1}\fi}
-
-% ==============================================================================
 % Document Class
 
 \LoadClass[
@@ -69,6 +63,9 @@
 
 % Color management.
 \RequirePackage{xcolor}
+
+% Used for definition an environment with a conditonal.
+\RequirePackage{environ}
 
 % Turns cross-references into (clickable) hyperlinks.
 % Load late because it redefines a lot of commands.
@@ -130,6 +127,16 @@
   citecolor = WeSTblue, % Color for links in citations.
 }
 
+
+% Reference Solution -----------------------------------------------------------
+
+\newif\ifsolution
+\newcommand*\inlinesolution[1]{\ifsolution{\color{WeSTred}#1}\fi}
+%\newenvironment{solution}{\ifsolution\color{WeSTred}}{omfg\fi}
+% For an explanation why \newenvironment is not used here
+% see https://tex.stackexchange.com/a/14631/75225
+\NewEnviron{solution}{\ifsolution\color{WeSTred}\expandafter\BODY\fi}
+
 % Title ------------------------------------------------------------------------
 
 % Redefine \maketitle such that it sets the \title, \subtitle and \date commands
@@ -137,7 +144,7 @@
 \let\oldmaketitle\maketitle
 \renewcommand*\maketitle{
   \title{\@lecture}%
-  \subtitle{Assignment~\@assignmentnumber\solution{~(Solution)}}%
+  \subtitle{Assignment~\@assignmentnumber\inlinesolution{~(Solution)}}%
   \date{%
     \@institute\\%
     \vspace{0.3cm}
