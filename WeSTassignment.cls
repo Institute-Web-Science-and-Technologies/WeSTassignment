@@ -208,7 +208,7 @@
       in your group's repository \emph{mandatory}.
     \item The SVN repository is available via\\
       \url{https://svn.uni-koblenz.de/westteaching/ir-ss17/<groupname>}
-    \item Solution format: all solutions for theoretical taks as \emph{one} PDF
+    \item Solution format: all solutions for theoretical tasks as \emph{one} PDF
       document.
       Programming code has to be submitted as Python code.
     \item The name of the group and the names of all participating students must
